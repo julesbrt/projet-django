@@ -1,0 +1,20 @@
+{% extends "appli_bball/main.html" %}
+
+{% block title %}
+    Page d'accueil du site
+{% endblock %}
+{%block content %}
+<ol>
+    {% for l in liste %}
+    <li>{{l}} <a href="/appli_bball/affiche/{{l.id}}">Afficher </a> <a href="/appli_bball/update/{{l.id}}">Modifier </a> <a
+            href="/appli_bball/delete/{{l.id}}">Supprimer </a></li>
+    {% endfor %}
+</ol>
+<ol>
+    {% for l2 in liste2 %}
+    <li>{{l2}} <a href="/appli_bball/affichepilote/{{l2.id}}">Afficher </a> <a href="/appli_bball/updatepilote/{{l2.id}}">Modifier </a>
+        <a href="/appli_bball/deletepilote/{{l2.id}}">Désinscrire le pilote </a></li>
+    {% endfor %}
+
+</ol>
+{% endblock %}

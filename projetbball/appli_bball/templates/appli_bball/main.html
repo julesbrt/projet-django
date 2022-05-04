@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{%static 'appli_bball/main.css' %}">
+    <title>{% block title %}Mon Projet Django{% endblock %}</title>
+</head>
+<body>
+<header class="entetesite">
+            <h1> Bienvenue sur notre site de gestion de la NBA</h1>
+            <nav>
+                <a href="http://127.0.0.1:8000/appli_bball/"> Accueil </a>
+                <a href="/appli_bball/ajout">Ajouter une équipe</a>
+                <a href="/appli_bball/recrute">Ajouter un joueur</a>
+            </nav>
+        </header>
+
+<div class="main">
+        {% block content %}
+            <h1> bloc de test
+            </h1>
+        {% endblock%}
+        </div>
+</body>
+</html>

@@ -25,10 +25,10 @@ class JoueurForm(ModelForm):
         fields = ('nomj', 'prenom','taille', 'poids', 'poste', 'numero', 'nbrtropheej')
         labels = {
             'nomj': _('Nom joueur'),
-            'prenom': _('prenom'),
+            'prenom': _('prénom'),
             'taille': _('taille'),
             'poids': _('poids'),
             'poste': _('poste'),
-            'numero': _('numero'),
+            'numero': _('numéro'),
             'nbrtropheej': _('Nombre de trophée(s)'),
         }

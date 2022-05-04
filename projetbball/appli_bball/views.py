@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponseRedirect
 from . import models
-from .forms import EquipeForm
+from .forms import EquipeForm, JoueurForm
 
 # Create your views here
 
@@ -14,10 +14,10 @@ def ajout(request):
 
 def recrute(request):
     if request.method == "POST":
-        form = EquipeForm(request)
+        form = JoueurForm(request)
         return render(request, "appli_bball/recrute.html", {"form": form})
     else :
-        form = EquipeForm()
+        form = JoueurForm()
         return render(request, "appli_bball/recrute.html", {"form": form})
 
 def saisie(request):
@@ -31,13 +31,28 @@ def traitement(request):
     else :
         return render(request, "appli_bball/ajout.html", {"form": eform})
 
+
+def traitementj(request):
+    jform = JoueurForm(request.POST)
+    if jform.is_valid():
+        joueur = jform.save()
+        return HttpResponseRedirect("/appli_bball")
+    else :
+        return render(request, "appli_bball/recrute.html", {"form": jform})
+
+
 def index(request):
     liste = list(models.equipe.objects.all())
-    return render(request,"appli_bball/index.html", {"liste": liste})
+    listej = list(models.joueur.objects.all())
+    return render(request,"appli_bball/index.html", {"liste": liste , "listej": listej})
 
 def affiche(request, id):
     equipe = models.equipe.objects.get( pk = id)
     return render(request, "appli_bball/affiche.html", {"equipe" : equipe})
+
+def affichej(request, id):
+    joueur = models.joueur.objects.get( pk = id)
+    return render(request, "appli_bball/affiche.html", {"joueur" : joueur})
 
 def update(request, id):
     equipe = models.equipe.objects.get(pk = id)
