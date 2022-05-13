@@ -42,20 +42,20 @@ def traitementj(request):
 
 
 def index(request):
-    liste = list(models.equipe.objects.all())
-    listej = list(models.joueur.objects.all())
+    liste = list(models.Equipe.objects.all())
+    listej = list(models.Joueur.objects.all())
     return render(request,"appli_bball/index.html", {"liste": liste , "listej": listej})
 
 def affiche(request, id):
-    equipe = models.equipe.objects.get( pk = id)
+    equipe = models.Equipe.objects.get( pk = id)
     return render(request, "appli_bball/affiche.html", {"equipe" : equipe})
 
 def affichej(request, id):
-    joueur = models.joueur.objects.get( pk = id)
-    return render(request, "appli_bball/affiche.html", {"joueur" : joueur})
+    joueur = models.Joueur.objects.get( pk = id)
+    return render(request, "appli_bball/affichej.html", {"joueur" : joueur})
 
 def update(request, id):
-    equipe = models.equipe.objects.get(pk = id)
+    equipe = models.Equipe.objects.get(pk = id)
     form = EquipeForm(equipe.dico())
     return render(request, "appli_bball/ajout.html",{"form":form, "id": id})
 
@@ -71,6 +71,30 @@ def updatetraitement(request, id):
         return render(request, "appli_bball/ajout.html", {"form": eform, "id" : id})
 
 def delete(request, id):
-    equipe = models.equipe.objects.get(pk=id)
+    equipe = models.Equipe.objects.get(pk=id)
     equipe.delete()
     return HttpResponseRedirect("/appli_bball")
+
+
+def deletej(request, id):
+    joueur = models.Joueur.objects.get(pk=id)
+    joueur.delete()
+    return HttpResponseRedirect("/appli_bball")
+
+
+def updatej(request, id):
+    joueur = models.Joueur.objects.get(pk = id)
+    form = JoueurForm(joueur.dico())
+    return render(request, "appli_bball/ajout.html",{"form":form, "id": id})
+
+def updatetraitementj(request, id):
+
+    jform = JoueurForm(request.POST)
+    if jform.is_valid():
+        joueur = jform.save(commit = False)
+        joueur.id = id
+        joueur.save()
+        return HttpResponseRedirect("/appli_bball")
+    else:
+        return render(request, "appli_bball/ajout.html", {"form": jform, "id" : id})
+

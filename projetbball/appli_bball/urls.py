@@ -3,20 +3,27 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path('ajout/', views.ajout),
+    path("", views.index),
 
-    #path('saisie/', views.saisie),
+    # path('saisie/', views.saisie),
+
+    path('ajout/', views.ajout),
     path('traitement/', views.traitement),
     path("affiche/<int:id>/", views.affiche),
+    path("update/<int:id>/", views.update),
     path("updatetraitement/<int:id>/", views.updatetraitement),
     path("updatetraitement//", views.traitement),
-
-    path("", views.index),
     path("delete/<int:id>/", views.delete),
-    path("update/<int:id>/", views.update),
 
 
-    path("affichej/<int:id>/", views.affichej),
-    path('traitementj/', views.traitementj),
+
     path('recrute/', views.recrute),
+    path('traitementj/', views.traitementj),
+    path("affichej/<int:id>/", views.affichej),
+    path("updatej/<int:id>/", views.updatej),
+    path("updatetraitementj/<int:id>/", views.updatetraitementj),
+    path("updatetraitementj//", views.traitementj),
+    path("deletej/<int:id>/", views.deletej),
+
+
 ]

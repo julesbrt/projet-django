@@ -4,7 +4,7 @@ from . import models
 
 class EquipeForm(ModelForm):
     class Meta:
-        model = models.equipe
+        model = models.Equipe
 
         fields = ('nom', 'ville','datecrea', 'proprio', 'sponsor', 'coach','nbrtrophee')
         labels = {
@@ -20,9 +20,9 @@ class EquipeForm(ModelForm):
 
 class JoueurForm(ModelForm):
     class Meta:
-        model = models.joueur
+        model = models.Joueur
 
-        fields = ('nomj', 'prenom','taille', 'poids', 'poste', 'numero', 'nbrtropheej')
+        fields = ('nomj', 'prenom','taille', 'poids', 'poste', 'numero', 'nbrtropheej', 'equipe')
         labels = {
             'nomj': _('Nom joueur'),
             'prenom': _('prénom'),
@@ -31,4 +31,5 @@ class JoueurForm(ModelForm):
             'poste': _('poste'),
             'numero': _('numéro'),
             'nbrtropheej': _('Nombre de trophée(s)'),
+            'equipe': _('Equipe'),
         }
