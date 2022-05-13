@@ -2,11 +2,12 @@ from django.forms import ModelForm
 from django.utils.translation import gettext_lazy as _
 from . import models
 
+
 class EquipeForm(ModelForm):
     class Meta:
         model = models.Equipe
 
-        fields = ('nom', 'ville','datecrea', 'proprio', 'sponsor', 'coach','nbrtrophee')
+        fields = ('nom', 'ville', 'datecrea', 'proprio', 'sponsor', 'coach', 'nbrtrophee')
         labels = {
             'nom': _('Nom équipe'),
             'ville': _('Ville'),
@@ -18,11 +19,12 @@ class EquipeForm(ModelForm):
 
         }
 
+
 class JoueurForm(ModelForm):
     class Meta:
         model = models.Joueur
 
-        fields = ('nomj', 'prenom','taille', 'poids', 'poste', 'numero', 'nbrtropheej', 'equipe')
+        fields = ('nomj', 'prenom', 'taille', 'poids', 'poste', 'numero', 'nbrtropheej', 'equipe')
         labels = {
             'nomj': _('Nom joueur'),
             'prenom': _('prénom'),

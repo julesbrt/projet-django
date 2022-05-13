@@ -14,9 +14,24 @@
         {% endif %}
 
         {% csrf_token %}
-        {{form.as_ul}}
-        <input type="submit" value="Ajouter le joueur"/>
-        <a href="/appli_bball/">Index</a>
+        <div class="text-center">
+
+            {{form.as_ul}}
+        </div>
+
+        <!--<div class="form-group">
+            <label>Nom du Joueur</label>
+            {{form.nomj}}
+        </div>
+        <div class="form-group">
+            <label>Equipe</label>
+            {{form.equipe}}
+        </div>-->
+
+
+        <input class="btn btn-danger" type="submit" value="Ajouter le joueur"/>
+        <a class="btn btn-dark" href="/appli_bball/">Index</a>
 
     </form>
+</form>
 {% endblock %}

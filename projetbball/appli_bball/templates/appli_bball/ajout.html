@@ -15,8 +15,9 @@
 
         {% csrf_token %}
         {{form.as_ul}}
-        <input type="submit" value="Ajouter l'équipe"/>
+        <input class="btn btn-danger" type="submit" value="Ajouter l'équipe"/>
         <a href="/appli_bball/">Index</a>
 
     </form>
+</form>
 {% endblock %}

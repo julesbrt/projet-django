@@ -1,4 +1,7 @@
+from gc import disable
+
 from django.db import models
+
 
 # Create your models here.
 
@@ -16,9 +19,9 @@ class Equipe(models.Model):
                f"Elle appartient à {self.proprio}, son sponsor principal est {self.sponsor}. Le coach principal est " \
                f"{self.coach} et a gagnée un total de {self.nbrtrophee} trophées."
 
-
     def dico(self):
-        return {"nom":self.nom,"ville":self.ville,"datecrea":self.datecrea,"proprio":self.proprio,"sponsor":self.sponsor,"coach":self.coach,"nbrtrophee":self.nbrtrophee}
+        return {"nom": self.nom, "ville": self.ville, "datecrea": self.datecrea, "proprio": self.proprio,
+                "sponsor": self.sponsor, "coach": self.coach, "nbrtrophee": self.nbrtrophee}
 
 
 class Joueur(models.Model):
@@ -41,10 +44,10 @@ class Joueur(models.Model):
     nbrtropheej = models.IntegerField(blank=True)
 
     def __str__(self):
-        return f"{self.nomj} {self.prenom}  est un joueur de basketball évoluant au poste {self.poste}, il mesure {self.taille}m "\
+        return f"{self.nomj} {self.prenom}  est un joueur de basketball évoluant au poste {self.poste}, il mesure {self.taille}m " \
                f"et pèse {self.poids} kgs. Il porte le numéro {self.numero} et a déjà gagné {self.nbrtropheej} titre(s) de champion NBA."
 
     def dico(self):
-        return {"nomj": self.nomj, "prenom": self.prenom, "taille": self.taille, "poids": self.poids, "poste": self.poste, "numero": self.numero, "nbrtropheej":
-            self.nbrtropheej, "equipe": self.equipe}
-
+        return {"nomj": self.nomj, "prenom": self.prenom, "taille": self.taille, "poids": self.poids,
+                "poste": self.poste, "numero": self.numero, "nbrtropheej":
+                    self.nbrtropheej, "equipe": self.equipe}

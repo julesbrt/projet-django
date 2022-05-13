@@ -15,8 +15,6 @@ urlpatterns = [
     path("updatetraitement//", views.traitement),
     path("delete/<int:id>/", views.delete),
 
-
-
     path('recrute/', views.recrute),
     path('traitementj/', views.traitementj),
     path("affichej/<int:id>/", views.affichej),
@@ -24,6 +22,5 @@ urlpatterns = [
     path("updatetraitementj/<int:id>/", views.updatetraitementj),
     path("updatetraitementj//", views.traitementj),
     path("deletej/<int:id>/", views.deletej),
-
 
 ]

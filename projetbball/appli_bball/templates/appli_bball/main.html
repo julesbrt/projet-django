@@ -3,24 +3,33 @@
 {% load static %}
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{%static 'appli_bball/main.css' %}">
+    <link rel="stylesheet" href="{%static 'appli_bball/css/bootstrap.css' %}">
+    <!-- <link rel="stylesheet" href="{%static 'appli_bball/main.css' %}"> -->
     <title>{% block title %}Mon Projet Django{% endblock %}</title>
 </head>
 <body>
-<header class="entetesite">
-            <h1> Bienvenue sur mon site de gestion de la NBA</h1>
-            <nav>
-                <a href="http://127.0.0.1:8000/appli_bball/"> Accueil </a>
-                <a href="/appli_bball/ajout">Ajouter une équipe</a>
-                <a href="/appli_bball/recrute">Ajouter un joueur</a>
-            </nav>
-        </header>
+<header>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
+        <ul class="navbar-nav ">
+            <li class="nav-item">
+                <a class="nav-link" href="http://127.0.0.1:8000/appli_bball/">Accueil</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/appli_bball/ajout">Ajouter une équipe</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/appli_bball/recrute">Ajouter un joueur</a>
+            </li>
+        </ul>
+    </nav>
+<h1 class="text-center"> Bienvenue sur mon site de gestion de la NBA</h1>
+</header>
 
-<div class="main">
-        {% block content %}
-            <h1> bloc de test
-            </h1>
-        {% endblock%}
-        </div>
+<div>
+    {%block content %}
+    <p>bloc de test</p>
+    {% endblock %}
+</div>
+
 </body>
 </html>
