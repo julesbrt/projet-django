@@ -1,20 +1,52 @@
 {% extends "appli_bball/main.html" %}
 
 {% block title %}
-    Page d'accueil du site
+Page d'accueil du site
 {% endblock %}
 {%block content %}
-<ol>
-    {% for l in liste %}
-    <li>{{l}} <a href="/appli_bball/affiche/{{l.id}}"> Afficher </a> <a href="/appli_bball/update/{{l.id}}"> Modifier </a> <a
-            href="/appli_bball/delete/{{l.id}}">Supprimer l'équipe</a></li>
-    {% endfor %}
-</ol>
-<ol>
-    {% for lj in listej %}
-    <li>{{lj}} <a href="/appli_bball/affichej/{{lj.id}}"> Afficher </a> <a href="/appli_bball/updatej/{{lj.id}}"> Modifier </a>
-        <a href="/appli_bball/deletej/{{lj.id}}">Supprimer le joueur </a></li>
-    {% endfor %}
 
-</ol>
+<h2 class="text-center text-decoration-underline">Equipes de NBA</h2>
+<div class="container">
+    <div class="row">
+        {% for l in liste %}
+        <div class="col-md-4">
+            <div class="card p-3 mb-4">
+                <h5 class="text-center card-title">{{l.nom}}</h5>
+                <div class="card-body">
+                    {{l}}
+                    <div class="mt-2">
+                        <a class="btn btn-primary mb-2" href="/appli_bball/affiche/{{l.id}}"> Afficher </a>
+                        <a class="btn btn-secondary mb-2" href="/appli_bball/update/{{l.id}}">Modifier</a>
+                        <a class="btn btn-danger mb-2" href="/appli_bball/delete/{{l.id}}">Supprimer</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<h2 class="text-center text-decoration-underline">Joueurs  de NBA</h2>
+
+<div class="container">
+    <div class="row">
+        {% for lj in listej %}
+        <div class="col-md-4">
+            <div class="card p-3 mb-4">
+                <h5 class="text-center card-title">{{lj.prenom}} {{lj.nomj}}</h5>
+                    <div class="card-body">
+                        {{lj}}
+                        <div class="mt-2">
+                            <a class="btn btn-primary mb-2" href="/appli_bball/affiche/{{lj.id}}"> Afficher </a>
+                            <a class="btn btn-secondary mb-2" href="/appli_bball/update/{{lj.id}}">Modifier</a>
+                            <a class="btn btn-danger mb-2" href="/appli_bball/delete/{{lj.id}}">Supprimer</a>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
 {% endblock %}

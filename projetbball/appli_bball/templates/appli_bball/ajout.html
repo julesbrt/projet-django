@@ -1,10 +1,10 @@
 {% extends "appli_bball/main.html" %}
 
 {% block title %}
-    Ajouter
+Ajouter
 {% endblock %}
 {%block content %}
-<h1>Ajouter une équipe</h1>
+<h1 class="text-center my-3">Ajouter une équipe</h1>
 
 {% if id != '' %}
 <form action="/appli_bball/updatetraitement/{{id}}/" method="post">
@@ -14,9 +14,12 @@
         {% endif %}
 
         {% csrf_token %}
-        {{form.as_ul}}
-        <input class="btn btn-danger" type="submit" value="Ajouter l'équipe"/>
-        <a href="/appli_bball/">Index</a>
+        <div class="text-center">
+            {{form.as_ul}}
+        </div>
+
+        <input class="btn btn-danger mx-1" type="submit" value="Ajouter l'équipe"/>
+        <a class="btn btn-dark" href="/appli_bball/">Index</a>
 
     </form>
 </form>

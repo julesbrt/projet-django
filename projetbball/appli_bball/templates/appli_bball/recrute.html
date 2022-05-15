@@ -1,10 +1,10 @@
 {% extends "appli_bball/main.html" %}
 
 {% block title %}
-    Inscrire
+Inscrire
 {% endblock %}
 {%block content %}
-<h1> Ajouter un joueur </h1>
+<h1 class="text-center my-3"> Ajouter un joueur </h1>
 
 {% if id != '' %}
 <form action="/appli_bball/updatetraitementj/{{id}}/" method="post">
@@ -15,21 +15,12 @@
 
         {% csrf_token %}
         <div class="text-center">
-
             {{form.as_ul}}
         </div>
 
-        <!--<div class="form-group">
-            <label>Nom du Joueur</label>
-            {{form.nomj}}
-        </div>
-        <div class="form-group">
-            <label>Equipe</label>
-            {{form.equipe}}
-        </div>-->
 
 
-        <input class="btn btn-danger" type="submit" value="Ajouter le joueur"/>
+        <input class="btn btn-danger mx-1" type="submit" value="Ajouter le joueur"/>
         <a class="btn btn-dark" href="/appli_bball/">Index</a>
 
     </form>

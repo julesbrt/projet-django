@@ -35,7 +35,7 @@ class Joueur(models.Model):
     )
 
     equipe = models.ForeignKey("Equipe", on_delete=models.CASCADE, default=None)
-    nomj = models.CharField(max_length=30)
+    nomj = models.CharField(max_length=30, )
     prenom = models.CharField(max_length=30)
     taille = models.CharField(max_length=30)
     poids = models.CharField(max_length=30)
@@ -44,8 +44,8 @@ class Joueur(models.Model):
     nbrtropheej = models.IntegerField(blank=True)
 
     def __str__(self):
-        return f"{self.nomj} {self.prenom}  est un joueur de basketball évoluant au poste {self.poste}, il mesure {self.taille}m " \
-               f"et pèse {self.poids} kgs. Il porte le numéro {self.numero} et a déjà gagné {self.nbrtropheej} titre(s) de champion NBA."
+        return f"{self.prenom} {self.nomj} est un joueur de basketball évoluant au poste {self.poste}, il mesure {self.taille}cm " \
+               f"et pèse {self.poids} kgs. Il porte le numéro {self.numero} et a gagné {self.nbrtropheej} titre(s) de champion NBA."
 
     def dico(self):
         return {"nomj": self.nomj, "prenom": self.prenom, "taille": self.taille, "poids": self.poids,
