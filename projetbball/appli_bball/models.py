@@ -15,9 +15,9 @@ class Equipe(models.Model):
     nbrtrophee = models.IntegerField(blank=True)
 
     def __str__(self):
-        return f"Les {self.nom} de {self.ville} sont une franchise de basket-ball en NBA crée le {self.datecrea}. " \
+        return f"Les {self.nom} de {self.ville} sont une franchise de basketball en NBA crée le {self.datecrea}. " \
                f"Elle appartient à {self.proprio}, son sponsor principal est {self.sponsor}. Le coach principal est " \
-               f"{self.coach} et a gagnée un total de {self.nbrtrophee} trophées."
+               f"{self.coach} et a gagnée un total de {self.nbrtrophee} trophée(s)."
 
     def dico(self):
         return {"nom": self.nom, "ville": self.ville, "datecrea": self.datecrea, "proprio": self.proprio,
@@ -27,15 +27,15 @@ class Equipe(models.Model):
 class Joueur(models.Model):
     choixposte = (
         ('/', 'Aucun'),
-        ('PG', 'point guard'),
-        ('SG', 'shooting guard'),
-        ('SF', 'small forward'),
-        ('PF', 'power forward'),
-        ('C', 'center'),
+        ('PG', 'Point guard'),
+        ('SG', 'Shooting guard'),
+        ('SF', 'Small forward'),
+        ('PF', 'Power forward'),
+        ('C', 'Center'),
     )
 
-    equipe = models.ForeignKey("Equipe", on_delete=models.CASCADE, default=None)
-    nomj = models.CharField(max_length=30, )
+    equipe = models.ForeignKey(Equipe, on_delete=models.CASCADE, default=None)
+    nomj = models.CharField(max_length=30)
     prenom = models.CharField(max_length=30)
     taille = models.CharField(max_length=30)
     poids = models.CharField(max_length=30)
@@ -44,8 +44,8 @@ class Joueur(models.Model):
     nbrtropheej = models.IntegerField(blank=True)
 
     def __str__(self):
-        return f"{self.prenom} {self.nomj} est un joueur de basketball évoluant au poste {self.poste}, il mesure {self.taille}cm " \
-               f"et pèse {self.poids} kgs. Il porte le numéro {self.numero} et a gagné {self.nbrtropheej} titre(s) de champion NBA."
+        return f"{self.prenom} {self.nomj} est un joueur de basketball évoluant au poste {self.poste}, il mesure {self.taille} cm " \
+               f"et pèse {self.poids} kg. Il porte le numéro {self.numero} et a gagné {self.nbrtropheej} titre(s) de champion NBA."
 
     def dico(self):
         return {"nomj": self.nomj, "prenom": self.prenom, "taille": self.taille, "poids": self.poids,

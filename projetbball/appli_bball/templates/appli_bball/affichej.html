@@ -1,12 +1,11 @@
 {% extends "appli_bball/main.html" %}
 
 {% block title %}
-    Inscrire
+{{joueur.nomj}}
 {% endblock %}
 {%block content %}
-
-{{joueur}} de son nom {{joueur.nom}}
-
-<p>Voici son age : {{joueur.taille}}</p>
+<h5 class="text-center m-md-5">
+    {{joueur}}
+</h5>
 
 {% endblock %}

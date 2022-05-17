@@ -5,7 +5,7 @@ Page d'accueil du site
 {% endblock %}
 {%block content %}
 
-<h2 class="text-center text-decoration-underline">Equipes de NBA</h2>
+<h2 class="text-center text-decoration-underline mb-4">Equipes de NBA</h2>
 <div class="container">
     <div class="row">
         {% for l in liste %}
@@ -27,7 +27,7 @@ Page d'accueil du site
     </div>
 </div>
 
-<h2 class="text-center text-decoration-underline">Joueurs  de NBA</h2>
+<h2 class="text-center text-decoration-underline mb-4 ">Joueurs de NBA</h2>
 
 <div class="container">
     <div class="row">
@@ -35,14 +35,14 @@ Page d'accueil du site
         <div class="col-md-4">
             <div class="card p-3 mb-4">
                 <h5 class="text-center card-title">{{lj.prenom}} {{lj.nomj}}</h5>
-                    <div class="card-body">
-                        {{lj}}
-                        <div class="mt-2">
-                            <a class="btn btn-primary mb-2" href="/appli_bball/affiche/{{lj.id}}"> Afficher </a>
-                            <a class="btn btn-secondary mb-2" href="/appli_bball/update/{{lj.id}}">Modifier</a>
-                            <a class="btn btn-danger mb-2" href="/appli_bball/delete/{{lj.id}}">Supprimer</a>
-                        </div>
+                <div class="card-body">
+                    {{lj}}
+                    <div class="mt-2">
+                        <a class="btn btn-primary mb-2" href="/appli_bball/affichej/{{lj.id}}"> Afficher </a>
+                        <a class="btn btn-secondary mb-2" href="/appli_bball/updatej/{{lj.id}}">Modifier</a>
+                        <a class="btn btn-danger mb-2" href="/appli_bball/deletej/{{lj.id}}">Supprimer</a>
                     </div>
+                </div>
             </div>
         </div>
         {% endfor %}

@@ -1,12 +1,10 @@
 {% extends "appli_bball/main.html" %}
 
 {% block title %}
-    Inscrire
+{{equipe.nom}}
 {% endblock %}
 {%block content %}
-
-{{equipe}} ville de {{equipe.ville}}
-
-<p>Voici son sponsor officiel : {{equipe.nom}}</p>
-
+<h5 class="text-center m-md-5">
+    {{equipe}}
+</h5>
 {% endblock %}
