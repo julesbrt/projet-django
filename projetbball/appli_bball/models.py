@@ -17,7 +17,7 @@ class Equipe(models.Model):
     def __str__(self):
         return f"Les {self.nom} de {self.ville} sont une franchise de basketball en NBA crée le {self.datecrea}. " \
                f"Elle appartient à {self.proprio}, son sponsor principal est {self.sponsor}. Le coach principal est " \
-               f"{self.coach} et a gagnée un total de {self.nbrtrophee} trophée(s)."
+               f"{self.coach} et a gagné un total de {self.nbrtrophee} trophée(s)."
 
     def dico(self):
         return {"nom": self.nom, "ville": self.ville, "datecrea": self.datecrea, "proprio": self.proprio,
@@ -45,7 +45,10 @@ class Joueur(models.Model):
 
     def __str__(self):
         return f"{self.prenom} {self.nomj} est un joueur de basketball évoluant au poste {self.poste}, il mesure {self.taille} cm " \
-               f"et pèse {self.poids} kg. Il porte le numéro {self.numero} et a gagné {self.nbrtropheej} titre(s) de champion NBA."
+               f"et pèse {self.poids} kg. Il porte le numéro {self.numero} et a gagné {self.nbrtropheej} titre(s) de champion NBA. " \
+               f"Il joue chez les {self.equipe.nom} de {self.equipe.ville}."
+
+
 
     def dico(self):
         return {"nomj": self.nomj, "prenom": self.prenom, "taille": self.taille, "poids": self.poids,

@@ -11,7 +11,7 @@ class EquipeForm(ModelForm):
         labels = {
             'nom': _('Nom équipe'),
             'ville': _('Ville'),
-            'datecrea': _('Date de creation'),
+            'datecrea': _('Date de création'),
             'proprio': _('Propriétaire'),
             'sponsor': _('Sponsor'),
             'coach': _('Coach'),
@@ -28,8 +28,8 @@ class JoueurForm(ModelForm):
         labels = {
             'nomj': _('Nom joueur '),
             'prenom': _('Prénom '),
-            'taille': _('Taille '),
-            'poids': _('Poids '),
+            'taille': _('Taille (en cm) '),
+            'poids': _('Poids (en kg) '),
             'poste': _('Poste '),
             'numero': _('Numéro '),
             'nbrtropheej': _('Nombre de trophée(s) '),
